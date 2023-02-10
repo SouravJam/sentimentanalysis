@@ -51,7 +51,7 @@ def sent_anly_prediction():
             model = load_model('sentimental.h5')
             probability = model.predict(array([vector][0]))[0][0]
             class1 = np.argmax(model.predict(array([vector][0]))[0][0])
-        if probability <=0.5:
+        if probability <0.5:
             sentiment = "NEGATIVE 🙁🙁🙁" 
         
         else:
