@@ -62,5 +62,5 @@ def sent_anly_prediction():
 
 if __name__ == "__main__":
     init()
-    app.debug = True
+    app.debug = False
     app.run()
