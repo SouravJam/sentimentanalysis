@@ -48,7 +48,7 @@ def sent_anly_prediction():
         x_test = keras.utils.pad_sequences(x_test, maxlen=300) # Should be same which you used for training data
         vector = np.array([x_test.flatten()])
         with graph.as_default():
-            model = load_model('sentimental.h5')
+            model = load_model('sentimental4.h5')
             probability = model.predict(array([vector][0]))[0][0]
             class1 = np.argmax(model.predict(array([vector][0]))[0][0])
         if probability <0.5:
