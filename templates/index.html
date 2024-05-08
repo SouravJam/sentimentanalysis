@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 40px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    .container:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .input-container {
+      text-align: center;
+    }
+    input[type="text"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus {
+      border-color: #4CAF50;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .result h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .result h2 {
+      font-size: 20px;
+      color: #666;
+    }
+    .footer {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter Text for Sentiment Analysis</h2>
+    <div class="input-container">
+      <form action="/sentiment_analysis_prediction" method="post" enctype="multipart/form-data">
+        <input type="text" name="text" placeholder="Enter Text Here">
+        <input type="submit" value="Analyze">
+      </form>
+    </div>
+    <div class="result">
+      {% if probability %}
+        <h1>Sentiment: {{ sentiment }}</h1>
+        <h2>Probability: {{ probability }}</h2>
+      {% endif %}
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2024 Sentiment Analysis App</p>
+  </div>
+</body>
+</html>
