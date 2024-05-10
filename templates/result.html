@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00416a, #e4e5e6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Changed to min-height for better responsiveness */
+        }
+        .container {
+            width: 80%; /* Changed to percentage for better responsiveness */
+            max-width: 600px; /* Added max-width for better responsiveness */
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .sentiment-positive {
+            color: #28a745;
+        }
+        .sentiment-negative {
+            color: #dc3545;
+        }
+        .probability {
+            color: #777;
+        }
+        .emojis {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .emoji {
+            font-size: 36px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis Result</h1>
+        <div class="emojis">
+            {% if sentiment == "POSITIVE" %}
+                <span class="emoji">&#x1F60A;</span> <!-- Smiling face with smiling eyes emoji -->
+            {% elif sentiment == "NEGATIVE" %}
+                <span class="emoji">&#x1F641;</span> <!-- Confused face emoji -->
+            {% endif %}
+        </div>
+        <p><strong>Entered Text:</strong> {{ text }}</p>
+        <p><strong>Sentiment:</strong> <span class="{{ sentiment_class }}">{{ sentiment }}</span></p>
+        <p><strong>Confidence:</strong> <span class="probability">{{ probability }}</span></p>
+    </div>
+</body>
+</html>
